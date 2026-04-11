@@ -103,6 +103,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     void initializePieces() {
     	
     	 board[0][0].put(new Piece(true,RESOURCES_WKING_PNG));
+
+         board[7][7].put(new Piece(false, RESOURCES_BKING_PNG));
         
 
     }
@@ -179,6 +181,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     //should move the piece to the desired location only if this is a legal move.
     //use the pieces "legal move" function to determine if this move is legal, then complete it by
     //moving the new piece to it's new board location. 
+    // PRE: start is a valid square containing this piece, and board is initialized
+    // POST: returns all valid squares this piece can legally move to (no out-of-bounds, and does not include squares occupied by same-color pieces)
     @Override
     public void mouseReleased(MouseEvent e) {
         for(Square[] row: board){
@@ -226,3 +230,8 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
     }
 
 }
+//Test: Board Initialization
+//- Ran program
+//- Verified 8x8 board displays correctly
+//- Squares alternate colors properly
+//- Result: PASS
