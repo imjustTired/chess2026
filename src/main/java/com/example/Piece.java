@@ -11,11 +11,11 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 //you will need to implement two functions in this file.
-public class Piece {
+public class Golem extends Piece {
     private final boolean color;
     private BufferedImage img;
     
-    public Piece(boolean isWhite, String img_file) {
+    public Golem(boolean isWhite, String img_file) {
         this.color = isWhite;
          
         try {
@@ -27,7 +27,7 @@ public class Piece {
           }
     }
     
-    
+ ..   
 
     
     public boolean getColor() {
