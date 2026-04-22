@@ -11,39 +11,15 @@ import java.util.List;
 import javax.imageio.ImageIO;
 
 //you will need to implement two functions in this file.
-public class Piece {
-    private final boolean color;
-    private BufferedImage img;
-    
-    public Piece(boolean isWhite, String img_file) {
-        this.color = isWhite;
-         
-        try {
-            if (this.img == null) {
-                this.img = ImageIO.read(new File(System.getProperty("user.dir")+img_file));
-            }
-          } catch (IOException e) {
-            System.out.println("File not found: " + e.getMessage());
-          }
-    }
-    
-    
+public class Golem extends Piece {
 
     
-    public boolean getColor() {
-        return color;
+    public Golem(boolean isWhite, String img_file) {
+        super(isWhite, img_file);
+
     }
     
-    public Image getImage() {
-        return img;
-    }
     
-    public void draw(Graphics g, Square currentSquare) {
-        int x = currentSquare.getX();
-        int y = currentSquare.getY();
-        
-        g.drawImage(this.img, x, y, null);
-    }
     
     
     // TO BE IMPLEMENTED!
@@ -52,9 +28,19 @@ public class Piece {
     // PRE: start is a valid square on the board and board is an 8x8 array
     // POST: returns all squares this piece could capture into (controlled squares) without going off the board
     public ArrayList<Square> getControlledSquares(Square[][] board, Square start) {
-        
+        ArrayList<Square> moves = new ArrayList<Square>();
+        for(int row = start.getRow()-1; row<start.getRow()+2 && row<=7; row++){
+            for(int col = start.getCol()-1; col<start.getCol()+2 && col<=7; col++){
+                if(row>=0 && col>=0){
+                    Square move = board[row][col];
+                    if (!move.isOccupied()){
+                        moves.add(move);
+                    }
+                }
+            }
+        }
 
-         return null;
+         return moves;
     }
     
 
@@ -67,7 +53,19 @@ public class Piece {
     // PRE: start is a valid square containing this piece, and board is initialized
     // POST: returns all valid squares this piece can legally move to (no out-of-bounds, and does not include squares occupied by same-color pieces)
     public ArrayList<Square> getLegalMoves(Board b, Square start){
-        return null;
+        ArrayList<Square> moves = new ArrayList<Square>();
+        for(int row = start.getRow()-1; row<start.getRow()+2 && row<=7; row++){
+            for(int col = start.getCol()-1; col<start.getCol()+2 && col<=7; col++){
+                if(row>=0 && col>=0){
+                    Square move = b.getSquareArray()[row][col];
+                    if (!move.isOccupied()){
+                        moves.add(move);
+                    }
+                }
+            }
+        }
+
+         return moves;
     }
         
            
