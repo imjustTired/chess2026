@@ -18,9 +18,9 @@ public class Piece {
     public Piece(boolean isWhite, String img_file) {
         this.color = isWhite;
          
-        try {
+      try {
             if (this.img == null) {
-                this.img = ImageIO.read(new File(System.getProperty("user.dir")+img_file));
+                this.img = ImageIO.read(new File(img_file));
             }
           } catch (IOException e) {
             System.out.println("File not found: " + e.getMessage());
@@ -42,7 +42,7 @@ public class Piece {
         int x = currentSquare.getX();
         int y = currentSquare.getY();
         
-        g.drawImage(this.img, x, y, null);
+        g.drawImage(this.img, 0,0, 50,50, null);
     }
     
     

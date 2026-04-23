@@ -76,17 +76,14 @@ public class Square extends JComponent {
 
     
     public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        
+        //super.paintComponent(g);
         if (this.color) {
             g.setColor(new Color(221,192,127));
-        } else {
-            g.setColor(new Color(101,67,33));
         }
-        
-        g.fillRect(this.getX(), this.getY(), this.getWidth(), this.getHeight());
+        g.fillRect(0,0, 50, 50);
         
         if(occupyingPiece != null && dispPiece) {
+            System.out.println("trying to draw");
             occupyingPiece.draw(g, this);
         }
     }

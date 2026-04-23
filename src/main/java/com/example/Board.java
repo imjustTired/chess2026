@@ -17,7 +17,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
 
     // PRE-condition: image files exist at these paths
     // POST-condition: constants store resource paths for all piece images
-    public static final String PICTURE_PATH = "/workspaces/chess/src/main/java/com/example/Pictures/";
+    public static final String PICTURE_PATH = "/workspaces/chess2026/src/main/java/com/example/Pictures/";
     public static final String RESOURCES_WGOLEM_PNG = PICTURE_PATH + "New Piskel.png";
     public static final String RESOURCES_BGOLEM_PNG = PICTURE_PATH + "BGolem.png";
     private static final String RESOURCES_WBISHOP_PNG = PICTURE_PATH + "wbishop.png";
@@ -140,6 +140,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
                 Square sq = board[x][y];
                 if (sq == fromMoveSquare)
                     sq.setBorder(BorderFactory.createLineBorder(Color.blue));
+                
             }
         }
     }
@@ -242,7 +243,7 @@ public class Board extends JPanel implements MouseListener, MouseMotionListener 
 
         if (endSquare != null && legal.contains(endSquare)) {
              if(!(endSquare.isOccupied() && endSquare.getOccupyingPiece() instanceof Golem
-             && (currPiece intanceof Pawn || currPiece instance of Knight))){
+             && (currPiece instanceof Pawn || currPiece instanceof Knight))){
 
             Piece captured = endSquare.getOccupyingPiece();
             endSquare.put(currPiece);
