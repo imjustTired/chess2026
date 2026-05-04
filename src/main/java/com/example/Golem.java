@@ -1,3 +1,5 @@
+ // Name: Rodwell Alfred
+ // Moves: Golem moves just like a king however it can't be take by knights or pawns
 package com.example;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -68,5 +70,16 @@ public class Golem extends Piece {
          return moves;
     }
         
+    public String toString(){
+    String color;
+
+    if (this.getColor() == true){
+        color = "White";
+    } else {
+        color = "Black";
+    }
+
+    return color + " Golem";
+}
            
 }
